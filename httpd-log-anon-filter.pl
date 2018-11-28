@@ -27,10 +27,11 @@ my $logfile = shift @ARGV || die  'no output file given';
 open my $log_fh, '>>', $logfile or die "can't open `$logfile': $!\n";
 $log_fh->autoflush();
 
-# get random MD5 salt
+# @TODO sha2 might replace md5
+# get random MD5 64 bits salt
 # this will give a new salt on every invocation, meaning that the
 # hashes are 'new' after logrotate's daily 'apache reload'
-my $salt = chr(rand(256)) . chr(rand(256)) . chr(rand(256)) . chr(rand(256));
+my $salt = chr(rand(256)) . chr(rand(256)) . chr(rand(256)) . chr(rand(256)) . chr(rand(256)) . chr(rand(256)) . chr(rand(256)) . chr(rand(256));
 
 while (my $line = <STDIN>) {
     my ($ip, $tail) = split /\s+/, $line, 2;
