@@ -25,7 +25,7 @@ it was easy to retrieve the salt with only 2^31 operations (average),
 now it is 2^63 operations.
 
 It is still possible to use a brute-force attack knowing a request,
-but it's now very costly.
+but it's now very costly and gives 2^32 (average) results to checks ;)
 
 
 dependencies
