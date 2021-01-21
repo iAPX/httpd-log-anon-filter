@@ -16,22 +16,21 @@ The project homepage is at https://github.com/mmitch/httpd-log-anon-filter
 Forked by Philippe "iAPX" Vigier
 --------------------------------
 
-It is a fork modified by Philippe "iAPX" Vigier only to extend the salt to
-64bits to make generated IP addresses harder to find when one IP is
+It is a fork modified by Philippe "iAPX" Vigier to extend the salt to
+256bits to make generated IP addresses harder to find when multiple IPs are
 already known (for example 127.0.0.1).
 
 The flaw is that with a 32bits salt and a known HTTP request and IP, 
 it was easy to retrieve the salt with only 2^31 operations (average), 
-now it is 2^63 operations.
-
-It is still possible to use a brute-force attack knowing a request,
-but it's now very costly and gives 2^32 (average) results to checks ;)
+now it is 2^255 operations. Enjoy!
 
 
 dependencies
 ------------
 
 - Perl
+- cpan (apt install cpanminus)
+- string::random (cpanm String::Random)
 
 
 usage
